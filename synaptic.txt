@@ -1,0 +1,38 @@
+synaptic
+
+	Synaptic est une interface graphique "complète" pour APT. Il permet l'installation de paquets depuis des dépôts APT, de même que leur désinstallation. Les droits d'administration sont nécessaires pour pouvoir utiliser ce programme.
+	Concrètement il va vous permettre de chercher et ensuite d'installer automatiquement (presque) tous les programmes que vous souhaitez utiliser. Notez que Synaptic gère des paquets ​provenant de dépôts APT uniquement. Il ne permet ​pas
+	l'​installation d'un paquet téléchargé manuellement depuis un site Internet ou généré par vous-même. ​
+	
+Synaptic est capable de :
+
+	ajouter ou retirer et activer ou désactiver des dépôts ;
+	ajouter, réinstaller ou supprimer des programmes ;
+	garder votre système à jour.	
+	
+On peut rechercher un paquet dans une liste et on peut voir les paquets disponibles.	
+
+
+
+Snap
+
+	Ubuntu 16.04 LTS est la première version à prendre en charge le nouveau format de paquets logiciels, Snap. Ce format vise à permettre l'installation de nouvelles versions de logiciels dans les systèmes Ubuntu stables, tout en apportant
+	aux développeurs la facilité de distribution, la fiabilité et la sécurité.
+
+	Avec le format Snap, pour recevoir des nouvelles versions de logiciels, les utilisateurs n'auront plus à mettre en jeu la stabilité de leur système Ubuntu par l'ajout de dépôts personnels. Ils pourront récupérer un paquet 
+	Snappy distribuée par l'éditeur. L'application s'exécute ensuite de manière isolée, ce qui accroît la stabilité et la sécurité du système. Le paquet .snap inclut l'application et peut contenir aussi ses dépendances ; 
+	en contrepartie d'un paquet plus lourd, ceux-ci peuvent donc faire cohabiter plusieurs versions de mêmes dépendances au sein d'un même système Ubuntu et en facilite la distribution en ligne et hors ligne.
+
+	Les paquets Snap ne remplacent pas les paquets Debian : le coeur du système Ubuntu (noyau, environnements graphiques, logiciels de base) continue d'être géré à l'aide des paquets DEB. 
+	Les paquets Snappy s'ajoutent à l'existant afin de fournir un mode de distribution sûr pour les logiciels tiers ou les versions non validées par le système.
+	
+	
+	
+YUM
+
+Yum, pour Yellowdog Updater Modified, est un gestionnaire de paquets pour des distributions Linux telles que Fedora, CentOS et Red Hat Enterprise Linux2, créé par Yellow Dog Linux.
+
+Il permet de gérer l'installation et la mise à jour des logiciels installés sur une distribution. C'est une surcouche de RPM gérant les téléchargements et les dépendances, de la même manière que APT de Debian ou Urpmi de Mandriva.
+Il existe plusieurs types de paramètres qui peuvent suivre la commande YUM. Certains concernent l'installation (comme install),la suppression (comme remove ), la recherche (search) ou la mise à jour du système (update). Lorsqu'on exécute YUM 
+en ligne de commande, cet utilitaire va d'abord interroger un certain nombre de dépôts activés qui sont définis dans le répertoire /etc/yum.repos.d/ ou consulter son cache. En fonction des informations obtenues, il pourra traiter le paramètre qui lui a été ajouté.
+	
