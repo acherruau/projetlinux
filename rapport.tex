@@ -18,9 +18,28 @@
 
 \section{première partie}
 
-\subsection{sous partie}
+\subsection{Dépendance}
+\paragraph{}
+Les programmes informatiques ne sont pas des briques logicielles isolées : ils s’utilisent les uns les autres, de façon à réduire tant les ressources utilisées par l’ensemble du processus aboutissant à leur exécution (installation sur disque, mise en mémoire, ...), que le temps de codage nécessaire aux programmeurs pour les réaliser. Par exemple, lorsqu’un logiciel lit ou écrit sur un disque, il utilise un sous-programme système existant dans une librairie.
 
-texte
+Par extension un certain nombre (de plus en plus, voire énormément...) de programmes utilitaires, automatisant de nombreuses fonctions récurrentes, sont disponibles dans des fichiers librairies partagés (appelés en l’occurrence, Shared Library).
+
+Les programmes peuvent intégrer les sous programmes contenus dans les librairies de deux façons, soit de manière statique ou de manière dynamique.
+
+    de manière statique toutes les sous programmes des librairies sont inclus dans le programme lors de son chargement en mémoire centrale (la taille mémoire centrale nécessaire au programme est donc plus grande).
+
+    de manière dynamique, lors de l’usage d’un sous programme, le programme le charge en mémoire à partir de la librairie qui le contient.
+
+Différents programmes, de différents logiciels, sont donc susceptibles d’utiliser à tout moment des librairies identiques. Celles-ci sont donc identifiées avec précision  et stockées sur disque suivant une arborescence déterminée.
+
+Certaines des distributions GNU/Linux, utilisant les systèmes « rpm » (Redhat, Mandrake) ou « deb » (Debian), gèrent les « dépendances » entre les logiciels utilisateurs et les librairies de sous programmes disponibles. Ce système de gestion des dépendances n’est donc pas inhérent à Linux (noyau dirait-on) mais lié à l’usage de certaines distributions. Malgré tout, sur des distributions ne gérant pas les dépendances, comme la Slackware, l’installation de packages de type tarball (extension .tgz) permet, grâce à des programmes spécifiques (installpkg, pkgtools, removepkg, ...) , de garder une trace de l’installation des logiciels installés et de les désinstaller proprement.
+
+Une librairie de sous programmes ne sera donc installée dans une arborescence connue que si elle n’existe pas déjà quelque part dans le système et dans la bonne version.
+
+Lors de la désinstallation d’un logiciel, une librairie de sous programmes utilisée par celui-ci, ne sera désinstallée que si le compteur de dépendances traçant son usage est à « 0 ». Ceci indiquant qu’elle n’est plus utilisée par aucun des logiciels présents sur le PC.
+
+Le système de « rpm », « « deb » permet donc d’avoir un disque propre et d’installer (désinstaller) des programmes en toute tranquillité, en étant sûr que les librairies nécessaires seront présentes et que celles devenues inutiles seront purgées.
+
 
 \section{deuxième partie}
 
