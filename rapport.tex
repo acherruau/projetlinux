@@ -50,16 +50,4 @@ texte
 \subsection{sous partie}
 
 texte
-
-\section{Bloc 3: Réalisation d'un dictionnaire listant le codage de chaque caractère}
-
-\paragraph{}
-
-Ce bloc permettra de coder chaque caractère du fichier à compresser en binaire. C'est cette opération que l'on appellera compression du document.
-
-Pour réaliser ce bloc, il faudra utiliser l'arbre créé auparavant dans le bloc 2. Grâce à cet arbre, on pourra coder chaque caractère en binaire suivant le chemin emprunté dans l'arbre.
-Par exemple ici, on établira que pour chaque chemin vers la gauche emprunté, un "0" sera codé pour le caractère trouvé. Lorsque le chemin emprunté est celui du fils droit, le codage sera un "1".
-
-C'est pourquoi la réalisation de ce bloc se basera sur une boucle de lecture de l'arbre. En premier temps la réalisation de cette lecture serait faite de manière préfixe, avec une variable binaire qui contiendrait le codage du caractère, s'incrémentant par un décalage de bit à chaque mouvement dans l'arbre jusqu'à attendre une feuille. Par soucis de temps et de solutions, un second choix a été réalisé: L'arbre sera lu de haut en bas jusqu'à atteindre une feuille, le codage et le caractère sera écrit dans le fichier puis la feuille sera supprimée. La lecture sera relancée, jusqu'à ce que l'arbre soit vide.
-
 \end{document}
