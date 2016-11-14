@@ -1,4 +1,4 @@
-\documentclass[a4paper,10pt]{article}
+\documentclass[a4paper,12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[francais]{babel}
 \usepackage[T1]{fontenc}
@@ -22,25 +22,38 @@
 
 \section{Dépendance}
 \paragraph{}
-Les programmes informatiques ne sont pas des briques logicielles isolées : ils s’utilisent les uns les autres, de façon à réduire tant les ressources utilisées par l’ensemble du processus aboutissant à leur exécution (installation sur disque, mise en mémoire, ...), que le temps de codage nécessaire aux programmeurs pour les réaliser. Par exemple, lorsqu’un logiciel lit ou écrit sur un disque, il utilise un sous-programme système existant dans une librairie.
+Les programmes informatiques ne sont pas des briques logicielles isolées : ils s’utilisent les uns les autres, de façon
+à réduire tant les ressources utilisées par l’ensemble du processus aboutissant à leur exécution (installation sur disque, mise en mémoire, ...), 
+que le temps de codage nécessaire aux programmeurs pour les réaliser. Par exemple, lorsqu’un logiciel lit ou écrit sur un disque, 
+il utilise un sous-programme système existant dans une librairie.\\
 
-Par extension un certain nombre (de plus en plus, voire énormément...) de programmes utilitaires, automatisant de nombreuses fonctions récurrentes, sont disponibles dans des fichiers librairies partagés (appelés en l’occurrence, Shared Library).
+Par extension un certain nombre (de plus en plus, voire énormément...) de programmes utilitaires, automatisant de nombreuses fonctions récurrentes, 
+sont disponibles dans des fichiers librairies partagés (appelés en l’occurrence, Shared Library).\\
 
-Les programmes peuvent intégrer les sous programmes contenus dans les librairies de deux façons, soit de manière statique ou de manière dynamique.
+Les programmes peuvent intégrer les sous programmes contenus dans les librairies de deux façons, soit de manière statique ou de manière dynamique.\\
 
-de manière statique toutes les sous programmes des librairies sont inclus dans le programme lors de son chargement en mémoire centrale (la taille mémoire centrale nécessaire au programme est donc plus grande).
+De manière statique toutes les sous programmes des librairies sont inclus dans le programme lors de son chargement en mémoire centrale 
+(la taille mémoire centrale nécessaire au programme est donc plus grande).\\
 
-de manière dynamique, lors de l’usage d’un sous programme, le programme le charge en mémoire à partir de la librairie qui le contient.
+De manière dynamique, lors de l’usage d’un sous programme, le programme le charge en mémoire à partir de la librairie qui le contient.\\
 
-Différents programmes, de différents logiciels, sont donc susceptibles d’utiliser à tout moment des librairies identiques. Celles-ci sont donc identifiées avec précision  et stockées sur disque suivant une arborescence déterminée.
+Différents programmes, de différents logiciels, sont donc susceptibles d’utiliser à tout moment des librairies identiques. 
+Celles-ci sont donc identifiées avec précision  et stockées sur disque suivant une arborescence déterminée.\\
 
-Certaines des distributions GNU/Linux, utilisant les systèmes « rpm » (Redhat, Mandrake) ou « deb » (Debian), gèrent les « dépendances » entre les logiciels utilisateurs et les librairies de sous programmes disponibles. Ce système de gestion des dépendances n’est donc pas inhérent à Linux (noyau dirait-on) mais lié à l’usage de certaines distributions. Malgré tout, sur des distributions ne gérant pas les dépendances, comme la Slackware, l’installation de packages de type tarball (extension .tgz) permet, grâce à des programmes spécifiques (installpkg, pkgtools, removepkg, ...) , de garder une trace de l’installation des logiciels installés et de les désinstaller proprement.
+Certaines des distributions GNU/Linux, utilisant les systèmes « rpm » (Redhat, Mandrake) ou « deb » (Debian), gèrent 
+les « dépendances » entre les logiciels utilisateurs et les librairies de sous programmes disponibles. 
+Ce système de gestion des dépendances n’est donc pas inhérent à Linux (noyau dirait-on) mais lié à l’usage de certaines distributions. 
+Malgré tout, sur des distributions ne gérant pas les dépendances, comme la Slackware, l’installation de packages de type tarball (extension .tgz)
+permet, grâce à des programmes spécifiques (installpkg, pkgtools, removepkg, ...) , de garder une trace de l’installation des logiciels installés 
+et de les désinstaller proprement.\\
 
-Une librairie de sous programmes ne sera donc installée dans une arborescence connue que si elle n’existe pas déjà quelque part dans le système et dans la bonne version.
+Une librairie de sous programmes ne sera donc installée dans une arborescence connue que si elle n’existe pas déjà quelque part dans le système et dans la bonne version.\\
 
-Lors de la désinstallation d’un logiciel, une librairie de sous programmes utilisée par celui-ci, ne sera désinstallée que si le compteur de dépendances traçant son usage est à « 0 ». Ceci indiquant qu’elle n’est plus utilisée par aucun des logiciels présents sur le PC.
+Lors de la désinstallation d’un logiciel, une librairie de sous programmes utilisée par celui-ci, ne sera désinstallée que si le compteur de 
+dépendances traçant son usage est à « 0 ». Ceci indiquant qu’elle n’est plus utilisée par aucun des logiciels présents sur le PC.\\
 
-Le système de « rpm », « « deb » permet donc d’avoir un disque propre et d’installer (désinstaller) des programmes en toute tranquillité, en étant sûr que les librairies nécessaires seront présentes et que celles devenues inutiles seront purgées.
+Le système de « rpm », « « deb » permet donc d’avoir un disque propre et d’installer (désinstaller) des programmes en toute tranquillité, 
+en étant sûr que les librairies nécessaires seront présentes et que celles devenues inutiles seront purgées.
 
 
 \section{APT : Advanced Packaging Tool}
@@ -69,6 +82,18 @@ Les dépôts auxquels Ubuntu accède par défaut, afin de vérifier les mises à
 (le groupe s'occupant du développement d'Ubuntu) et votre CD d'installation. Vous pouvez étendre (ou réduire) la liste des dépôts accessibles par votre système en ajoutant ou retirant des dépôts d'autres distributeurs. 
 Sous Ubuntu, la grande majorité des applications est disponible dans les dépôts officiels et celles-ci sont directement installables à l'aide d'outils graphiques comme La Logithèque Ubuntu.
 
+\paragraph{Quelques commandes : }
+\paragraph{}
+mise à jour des programmes :
+\begin{verbatim}
+ apt-get update
+\end{verbatim}
+\paragraph{}
+installer un  paquet spécifique :
+\begin{verbatim}
+ apt-get install <NomDuPaquet>
+\end{verbatim}
+
 
 
 \section{Différents gestionnaire}
@@ -86,13 +111,17 @@ Synaptic est capable de :
 \end{itemize}
 On peut rechercher un paquet dans une liste et on peut voir les paquets disponibles.
 \begin{center}
-\paragraph{Interface de synaptic}
+
 \includegraphics[width=1\textwidth]{synaptic.png}
 \end{center}
+\begin{center}
+ Interface de synaptic
+\end{center}
+
 
 \subsection{Snap}
 \paragraph{}
-Ubuntu 16.04 LTS est la première version à prendre en charge le nouveau format de paquets logiciels, Snap. Ce format vise à permettre l'installation de nouvelles versions de logiciels dans les systèmes Ubuntu stables, tout en apportant
+Ubuntu 16.04 est la première version à prendre en charge le nouveau format de paquets logiciels, Snap. Ce format vise à permettre l'installation de nouvelles versions de logiciels dans les systèmes Ubuntu stables, tout en apportant
 aux développeurs la facilité de distribution, la fiabilité et la sécurité.
 Avec le format Snap, pour recevoir des nouvelles versions de logiciels, les utilisateurs n'auront plus à mettre en jeu la stabilité de leur système Ubuntu par l'ajout de dépôts personnels. Ils pourront récupérer un paquet 
 Snappy distribuée par l'éditeur. L'application s'exécute ensuite de manière isolée, ce qui accroît la stabilité et la sécurité du système. Le paquet .snap inclut l'application et peut contenir aussi ses dépendances ; 
@@ -107,6 +136,9 @@ Yum, pour Yellowdog Updater Modified, est un gestionnaire de paquets pour des di
 Il permet de gérer l'installation et la mise à jour des logiciels installés sur une distribution. C'est une surcouche de RPM gérant les téléchargements et les dépendances, de la même manière que APT de Debian ou Urpmi de Mandriva.
 Il existe plusieurs types de paramètres qui peuvent suivre la commande YUM. Certains concernent l'installation (comme install),la suppression (comme remove ), la recherche (search) ou la mise à jour du système (update). Lorsqu'on exécute YUM 
 en ligne de commande, cet utilitaire va d'abord interroger un certain nombre de dépôts activés qui sont définis dans le répertoire /etc/yum.repos.d/ ou consulter son cache. En fonction des informations obtenues, il pourra traiter le paramètre qui lui a été ajouté.
+
+
+
 
 
 
