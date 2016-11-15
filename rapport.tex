@@ -142,9 +142,32 @@ en ligne de commande, cet utilitaire va d'abord interroger un certain nombre de 
 \paragraph{}
 Python est un langage de programmation très polyvalent et modulaire, qui est utilisé aussi bien pour écrire des applications comme YouTube, que pour traiter des données scientifiques. Par conséquent, il existe de multiples installations possibles de Python. Par exemple l'une d'entre elle, la suite scientifique Anaconda, rassemble le langage Python et ses modules scientifiques.
 
-\subsection{L'installation de logiciels sur Python}
-(A venir) Installation de modules sous python
+\subsection{L'installation de modules sur Python}
+En temps que logiciel libre populaire, Python bénéficie d’une communauté active de contributeurs et d’utilisateurs qui rendent à leur tour leurs logiciels disponibles, sous licence libre, pour les autres développeurs Python.
+Cela permet aux utilisateurs de Python de partager et de collaborer efficacement, bénéficiant des solutions que les autres ont déjà crées pour résoudre les problèmes communs (ou même, parfois, rares !), aussi que de partager leurs propres solutions à tous.
+Un environnement virtuel est un environnement Python, semi-isolé, qui permet d’installer des paquets pour une application particulière, plutôt que de les installer sur le système entier. Python dispose d'un dépot public, le Python Packaging Index, qui est rendu public par d'autres utilisateurs Python. Ce dépôt public contient des paquets sous licence libre accessibles par tout les utilisateurs de Python.
+Voici un exemple de commande pour installer la dernière version d'un module et ses dépendances depuis le Python Package Index:
 
+\begin{verbatim}
+ python -m pip install SomePackage==1.0.4 
+ // On peut préciser la version minimum ou exacte à installer
+\end{verbatim}
 
+Si un module est déjà installé, l'installer à nouveau n'aura aucun effet. La mise à jour de modules doit être demandée par la ligne de commande suivante:
+
+\begin{verbatim}
+ python -m pip install --upgrade SomePackage
+\end{verbatim}
+L'installation de paquets peut se faire seulement pour l'utilisateur actuel: l'installation ne se fera pas pour tous les utilisateurs du système. Pour cela, il faut rajouter l'option --user à la commande python -m pip install.
+
+\subsection{Les problèmes d'installation typiques}
+- Sur les systèmes Linux, une installation de Python sera généralement inclue dans le cadre de la distribution. Installer dans cette installation de Python nécessite un accès root sur le système, et peut interférer avec le fonctionnement du gestionnaire de paquets du système et d’autres composants du système si un composant est mis à jour de façon inattendue en utilisant pip.
+
+Sur de tels systèmes, il est souvent préférable d’utiliser un environnement virtuel ou une installation par l’utilisateur lors de l’installation des paquets avec pip.
+
+- Problème lors de l'installation d'extensions binaires:
+Python a généralement beaucoup misé sur une distribution basée sur les sources, avec laquelle les utilisateurs finaux devaient compiler, lors de l’installation, les modules d’extension à partir des sources.
+
+Avec l’introduction du format binaire wheel, et la possibilité de publier des wheels, pour, au moins Windows et Mac OS X, via le Python Package Index, ce problème devrait diminuer au fil du temps, car les utilisateurs sont plus régulièrement en mesure d’installer des extensions pré-compilées plutôt que de devoir les compiler eux-mêmes.
 
 \end{document}
