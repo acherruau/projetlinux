@@ -22,7 +22,7 @@
 
     % Upper part of the page. The '~' is needed because \\
     % only works if a paragraph has started.
-    \includegraphics[scale=0.04]{}~\\[1.5cm]
+    \includegraphics[scale=1]{univangers.jpg}~\\[1.5cm]
 
     \textsc{\LARGE Université d'Angers}\\[2cm]
 
@@ -68,7 +68,7 @@ Les programmes informatiques ne sont pas des briques logicielles isolées : ils 
 que le temps de codage nécessaire aux programmeurs pour les réaliser. Par exemple, lorsqu’un logiciel lit ou écrit sur un disque, 
 il utilise un sous-programme système existant dans une librairie.\\
 
-Par extension un certain nombre (de plus en plus, voire énormément...) de programmes utilitaires, automatisant de nombreuses fonctions récurrentes, 
+Par extension un certain nombre de programmes utilitaires, automatisant de nombreuses fonctions récurrentes, 
 sont disponibles dans des fichiers librairies partagés (appelés en l’occurrence, Shared Library).\\
 
 Les programmes peuvent intégrer les sous programmes contenus dans les librairies de deux façons, soit de manière statique ou de manière dynamique.\\
@@ -95,7 +95,7 @@ dépendances traçant son usage est à « 0 ». Ceci indiquant qu’elle n’est
 
 Le système de « rpm », « « deb » permet donc d’avoir un disque propre et d’installer (désinstaller) des programmes en toute tranquillité, 
 en étant sûr que les librairies nécessaires seront présentes et que celles devenues inutiles seront purgées.
-
+\clearpage
 
 \section{APT : Advanced Packaging Tool}
 \paragraph{}
@@ -134,14 +134,25 @@ installer un  paquet spécifique :
 \begin{verbatim}
  apt-get install <NomDuPaquet>
 \end{verbatim}
+\paragraph{}
+acceder/éditer à la liste des dépôts de l'ordinateur :
+\begin{verbatim}
+sudo nano /etc/apt/sources.list
+\end{verbatim}
+\begin{center}
 
+\includegraphics[width=0.8\textwidth]{terminal.png}
+\end{center}
+\begin{center}
+ Console linux pour utiliser Apt-get
+\end{center}
 
-
+\clearpage
 \section{Différents gestionnaire}
 \subsection{Synaptic}
 \paragraph{}
 Synaptic est une interface graphique "complète" pour APT. Il permet l'installation de paquets depuis des dépôts APT, de même que leur désinstallation. Les droits d'administration sont nécessaires pour pouvoir utiliser ce programme.
-Concrètement il va vous permettre de chercher et ensuite d'installer automatiquement (presque) tous les programmes que vous souhaitez utiliser. Notez que Synaptic gère des paquets ​provenant de dépôts APT uniquement. Il ne permet ​pas
+Concrètement il va permettre de chercher et ensuite d'installer automatiquement (presque) tous les programmes que l'on souhaite utiliser. Notez que Synaptic gère des paquets ​provenant de dépôts APT uniquement. Il ne permet ​pas
 l'​installation d'un paquet téléchargé manuellement depuis un site Internet ou généré par soi-même. ​
 
 Synaptic est capable de :
@@ -165,7 +176,7 @@ On peut rechercher un paquet dans une liste et on peut voir les paquets disponib
 Ubuntu 16.04 est la première version à prendre en charge le nouveau format de paquets logiciels, Snap. Ce format vise à permettre l'installation de nouvelles versions de logiciels dans les systèmes Ubuntu stables, tout en apportant
 aux développeurs la facilité de distribution, la fiabilité et la sécurité.
 Avec le format Snap, pour recevoir des nouvelles versions de logiciels, les utilisateurs n'auront plus à mettre en jeu la stabilité de leur système Ubuntu par l'ajout de dépôts personnels. Ils pourront récupérer un paquet 
-Snappy distribuée par l'éditeur. L'application s'exécute ensuite de manière isolée, ce qui accroît la stabilité et la sécurité du système. Le paquet .snap inclut l'application et peut contenir aussi ses dépendances ; 
+Snappy distribuée par l'éditeur.\\ L'application s'exécute ensuite de manière isolée, ce qui accroît la stabilité et la sécurité du système. Le paquet .snap inclut l'application et peut contenir aussi ses dépendances ; 
 en contrepartie d'un paquet plus lourd, ceux-ci peuvent donc faire cohabiter plusieurs versions de mêmes dépendances au sein d'un même système Ubuntu et en facilite la distribution en ligne et hors ligne.
 Les paquets Snap ne remplacent pas les paquets Debian : le coeur du système Ubuntu (noyau, environnements graphiques, logiciels de base) continue d'être géré à l'aide des paquets DEB. 
 Les paquets Snappy s'ajoutent à l'existant afin de fournir un mode de distribution sûr pour les logiciels tiers ou les versions non validées par le système.
@@ -178,6 +189,7 @@ Il permet de gérer l'installation et la mise à jour des logiciels installés s
 Il existe plusieurs types de paramètres qui peuvent suivre la commande YUM. Certains concernent l'installation (comme install),la suppression (comme remove ), la recherche (search) ou la mise à jour du système (update). Lorsqu'on exécute YUM 
 en ligne de commande, cet utilitaire va d'abord interroger un certain nombre de dépôts activés qui sont définis dans le répertoire /etc/yum.repos.d/ ou consulter son cache. En fonction des informations obtenues, il pourra traiter le paramètre qui lui a été ajouté.
 
+\clearpage
 \section{Environnement Python}
 \subsection{Présentation rapide de l'environnement}
 \paragraph{}
@@ -210,5 +222,15 @@ Sur de tels systèmes, il est souvent préférable d’utiliser un environnement
 Python a généralement beaucoup misé sur une distribution basée sur les sources, avec laquelle les utilisateurs finaux devaient compiler, lors de l’installation, les modules d’extension à partir des sources.
 
 Avec l’introduction du format binaire wheel, et la possibilité de publier des wheels, pour, au moins Windows et Mac OS X, via le Python Package Index, ce problème devrait diminuer au fil du temps, car les utilisateurs sont plus régulièrement en mesure d’installer des extensions pré-compilées plutôt que de devoir les compiler eux-mêmes.
+
+\clearpage
+\section{Références}
+
+\url{https://framasoft.org/article2460.html}
+\url{https://doc.ubuntu-fr.org/synaptic}
+\url{https://doc.ubuntu-fr.org/apt-get}
+\url{https://doc.ubuntu-fr.org/depots}
+\url{https://doc.ubuntu-fr.org/gestionnaire_de_paquets}
+\url{http://doc.fedora-fr.org/wiki/YUM_:_Configuration_du_gestionnaire_de_paquets}
 
 \end{document}

@@ -1,0 +1,118 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+
+%opening
+\title{\textbf{Installations de logiciels :} \\ dépendance, dépôt, gestionnaire de package, installation depuis les sources, environnement virtuel python}
+
+\author{Groupe 2 : Poupelin Bastien, Cherruau Anthony, Thebaudin Corentin}
+\date{}
+
+\begin{document}
+
+\maketitle
+\clearpage
+\tableofcontents
+
+\clearpage
+
+
+
+\section{Dépendance}
+\paragraph{}
+Les programmes informatiques ne sont pas des briques logicielles isolées : ils s’utilisent les uns les autres, de façon à réduire tant les ressources utilisées par l’ensemble du processus aboutissant à leur exécution (installation sur disque, mise en mémoire, ...), que le temps de codage nécessaire aux programmeurs pour les réaliser. Par exemple, lorsqu’un logiciel lit ou écrit sur un disque, il utilise un sous-programme système existant dans une librairie.
+
+Par extension un certain nombre (de plus en plus, voire énormément...) de programmes utilitaires, automatisant de nombreuses fonctions récurrentes, sont disponibles dans des fichiers librairies partagés (appelés en l’occurrence, Shared Library).
+
+Les programmes peuvent intégrer les sous programmes contenus dans les librairies de deux façons, soit de manière statique ou de manière dynamique.
+
+de manière statique toutes les sous programmes des librairies sont inclus dans le programme lors de son chargement en mémoire centrale (la taille mémoire centrale nécessaire au programme est donc plus grande).
+
+de manière dynamique, lors de l’usage d’un sous programme, le programme le charge en mémoire à partir de la librairie qui le contient.
+
+Différents programmes, de différents logiciels, sont donc susceptibles d’utiliser à tout moment des librairies identiques. Celles-ci sont donc identifiées avec précision  et stockées sur disque suivant une arborescence déterminée.
+
+Certaines des distributions GNU/Linux, utilisant les systèmes « rpm » (Redhat, Mandrake) ou « deb » (Debian), gèrent les « dépendances » entre les logiciels utilisateurs et les librairies de sous programmes disponibles. Ce système de gestion des dépendances n’est donc pas inhérent à Linux (noyau dirait-on) mais lié à l’usage de certaines distributions. Malgré tout, sur des distributions ne gérant pas les dépendances, comme la Slackware, l’installation de packages de type tarball (extension .tgz) permet, grâce à des programmes spécifiques (installpkg, pkgtools, removepkg, ...) , de garder une trace de l’installation des logiciels installés et de les désinstaller proprement.
+
+Une librairie de sous programmes ne sera donc installée dans une arborescence connue que si elle n’existe pas déjà quelque part dans le système et dans la bonne version.
+
+Lors de la désinstallation d’un logiciel, une librairie de sous programmes utilisée par celui-ci, ne sera désinstallée que si le compteur de dépendances traçant son usage est à « 0 ». Ceci indiquant qu’elle n’est plus utilisée par aucun des logiciels présents sur le PC.
+
+Le système de « rpm », « « deb » permet donc d’avoir un disque propre et d’installer (désinstaller) des programmes en toute tranquillité, en étant sûr que les librairies nécessaires seront présentes et que celles devenues inutiles seront purgées.
+
+
+\section{APT : Advanced Packaging Tool}
+\paragraph{}
+C'est un sytème complet et avancé de gestion de paquets permettant une recherche facile et efficace, une installation simple et une désinstallation propre de logiciels et utilitaires. 
+Il permet aussi de facilement tenir à jour votre distribution Ubuntu avec les paquets en versions les plus récentes et de passer à une nouvelle version de Ubuntu, lorsque celle-ci est disponible.
+APT est un ensemble d'utilitaires utilisables en ligne de commande. Il dispose aussi de nombreuses interfaces graphiques, dont Synaptic et Apper, et d'interfaces en ligne de commande, comme apt-get 
+et Aptitude, afin d'en rendre l'utilisation plus sympathique.
+
+\paragraph{Qu'est-ce qu'un paquet?}
+\subparagraph{}
+En informatique, et en particulier dans le contexte des systèmes Unix, on appelle paquet (ou parfois paquetage, en anglais package) une archive (fichier compressé) comprenant les fichiers informatiques, 
+les informations et procédures nécessaires à l'installation d'un logiciel sur un système d'exploitation au sein d'un agrégat logiciel, en s'assurant de la cohérence fonctionnelle du système ainsi modifié.» 	
+Afin de permettre une gestion efficace des paquets et des dépendances, la façon la plus pratique de récupérer un paquet est de le télécharger depuis un dépôt APT, à l'aide du système APT. Des paquets 
+peuvent aussi être téléchargés depuis des sites Internet, quand les distributeurs en fournissent.
+
+\paragraph{Que sont les dépôts APT ?}
+\subparagraph{}
+Les dépôts APT sont des "sources de logiciels", concrètement des serveurs qui contiennent un ensemble de paquets. À l'aide d'un outil appelé gestionnaire de paquets, vous pouvez accéder à ces dépôts et, 
+en quelques clics de souris, vous trouvez, téléchargez et installez les logiciels de votre choix.
+Ce système vous évite de parcourir vos CD d'Ubuntu et Internet pour trouver des paquets pour vos logiciels.
+L'usage de ces outils centralise la gestion des logiciels et la simplifie. Ils permettent également aux distributeurs (ceux qui mettent en place les dépôts) de vous fournir les mises à jour par une voie centralisée.
+Ubuntu intègre aussi de base un outil nommé Gestionnaire de mises à jour, qui vérifie périodiquement dans les dépôts auxquels vous avez accès que vous disposez des dernières versions de vos logiciels et bibliothèques ;
+dans le cas contraire, il vous permet de les mettre à jour automatiquement.
+Les dépôts auxquels Ubuntu accède par défaut, afin de vérifier les mises à jour logicielles et rechercher les logiciels à installer, sont les dépôts maintenus par la Fondation Ubuntu 
+(le groupe s'occupant du développement d'Ubuntu) et votre CD d'installation. Vous pouvez étendre (ou réduire) la liste des dépôts accessibles par votre système en ajoutant ou retirant des dépôts d'autres distributeurs. 
+Sous Ubuntu, la grande majorité des applications est disponible dans les dépôts officiels et celles-ci sont directement installables à l'aide d'outils graphiques comme La Logithèque Ubuntu.
+
+
+
+\section{Différents gestionnaire}
+\subsection{Synaptic}
+\paragraph{}
+Synaptic est une interface graphique "complète" pour APT. Il permet l'installation de paquets depuis des dépôts APT, de même que leur désinstallation. Les droits d'administration sont nécessaires pour pouvoir utiliser ce programme.
+Concrètement il va vous permettre de chercher et ensuite d'installer automatiquement (presque) tous les programmes que vous souhaitez utiliser. Notez que Synaptic gère des paquets ​provenant de dépôts APT uniquement. Il ne permet ​pas
+l'​installation d'un paquet téléchargé manuellement depuis un site Internet ou généré par soi-même. ​
+
+Synaptic est capable de :
+\begin{itemize}
+\item ajouter ou retirer et activer ou désactiver des dépôts 
+\item ajouter, réinstaller ou supprimer des programmes 
+\item garder votre système à jour
+\end{itemize}
+On peut rechercher un paquet dans une liste et on peut voir les paquets disponibles.
+\begin{center}
+\paragraph{Interface de synaptic}
+\includegraphics[width=1\textwidth]{synaptic.png}
+\end{center}
+
+\subsection{Snap}
+\paragraph{}
+Ubuntu 16.04 LTS est la première version à prendre en charge le nouveau format de paquets logiciels, Snap. Ce format vise à permettre l'installation de nouvelles versions de logiciels dans les systèmes Ubuntu stables, tout en apportant
+aux développeurs la facilité de distribution, la fiabilité et la sécurité.
+Avec le format Snap, pour recevoir des nouvelles versions de logiciels, les utilisateurs n'auront plus à mettre en jeu la stabilité de leur système Ubuntu par l'ajout de dépôts personnels. Ils pourront récupérer un paquet 
+Snappy distribuée par l'éditeur. L'application s'exécute ensuite de manière isolée, ce qui accroît la stabilité et la sécurité du système. Le paquet .snap inclut l'application et peut contenir aussi ses dépendances ; 
+en contrepartie d'un paquet plus lourd, ceux-ci peuvent donc faire cohabiter plusieurs versions de mêmes dépendances au sein d'un même système Ubuntu et en facilite la distribution en ligne et hors ligne.
+Les paquets Snap ne remplacent pas les paquets Debian : le coeur du système Ubuntu (noyau, environnements graphiques, logiciels de base) continue d'être géré à l'aide des paquets DEB. 
+Les paquets Snappy s'ajoutent à l'existant afin de fournir un mode de distribution sûr pour les logiciels tiers ou les versions non validées par le système.
+
+\subsection{Yum}
+\paragraph{}
+Yum, pour Yellowdog Updater Modified, est un gestionnaire de paquets pour des distributions Linux telles que Fedora, CentOS et Red Hat Enterprise Linux2, créé par Yellow Dog Linux.
+
+Il permet de gérer l'installation et la mise à jour des logiciels installés sur une distribution. C'est une surcouche de RPM gérant les téléchargements et les dépendances, de la même manière que APT de Debian ou Urpmi de Mandriva.
+Il existe plusieurs types de paramètres qui peuvent suivre la commande YUM. Certains concernent l'installation (comme install),la suppression (comme remove ), la recherche (search) ou la mise à jour du système (update). Lorsqu'on exécute YUM 
+en ligne de commande, cet utilitaire va d'abord interroger un certain nombre de dépôts activés qui sont définis dans le répertoire /etc/yum.repos.d/ ou consulter son cache. En fonction des informations obtenues, il pourra traiter le paramètre qui lui a été ajouté.
+
+\begin{verbatim}
+ apt-get install
+\end{verbatim}
+
+
+
+
+\end{document}
