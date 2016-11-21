@@ -3,8 +3,7 @@
 \usepackage[francais]{babel}
 \usepackage[T1]{fontenc}
 \usepackage[pdftex]{graphicx}
-
-
+\usepackage{url}
 
 
 \setlength{\parindent}{0cm}
@@ -30,11 +29,11 @@
 
     % Title
     \HRule \\[0.4cm]
-    { \huge \bfseries Installations de logiciels :} \\ dépendance, dépôt, gestionnaire de package, installation depuis les sources, environnement virtuel python}\\[0.4cm] }
+    { \huge \bfseries Installations de logiciels :}{ \bfseries  \\ dépendance, dépôt, gestionnaire de package, installation depuis les sources, environnement virtuel python\\[0.4cm] }
 
     \HRule \\[2cm]
-    \includegraphics[scale=0.2]{}
     \\[2cm]
+    
 
     % Author and supervisor
     \begin{minipage}{0.4\textwidth}
@@ -47,7 +46,7 @@
     
 
     \vfill
-
+    \HRule\\[2cm]
     % Bottom of the page
     {\large 16 novembre 2016}
 
@@ -55,6 +54,7 @@
   \end{sffamily}
 \end{titlepage}
 \clearpage
+
 \tableofcontents
 
 \clearpage
@@ -189,6 +189,19 @@ Il permet de gérer l'installation et la mise à jour des logiciels installés s
 Il existe plusieurs types de paramètres qui peuvent suivre la commande YUM. Certains concernent l'installation (comme install),la suppression (comme remove ), la recherche (search) ou la mise à jour du système (update). Lorsqu'on exécute YUM 
 en ligne de commande, cet utilitaire va d'abord interroger un certain nombre de dépôts activés qui sont définis dans le répertoire /etc/yum.repos.d/ ou consulter son cache. En fonction des informations obtenues, il pourra traiter le paramètre qui lui a été ajouté.
 
+
+\section{Compiler, configurer et installer un logiciel avec les sources}
+\paragraph{}
+
+La plupart des programmes sont disponibles à l’aide de la commande apt-get mais certains, trop récent, en développement ou pas assez connus ne le sont pas. 
+Il est alors nécessaire de mener des recherche sur le site web du logiciel recherché. \\
+On peut alors trouver un fichier en .deb qui permet l’installation d’une programme à la manière d’un .exe sur Windows. Mais ce format est exclusif à Debian et à ses distribution (Ubuntu).
+Il existe aussi un format rmp pour Red Hat. Le programme alien permet de de passer d’un format à l’autre.\\
+Si le paquetage n’existe pas alors il faut récupérer le code source du programme sur son site. A l’aide du paquet build-essential précédemment installé, nous sommes désormais en mesure d’exécuter ./configure situé dans les fichiers du code source du logiciel que l’on veut installer. 
+Cet exécutable permet d’analyser la machine et de vérifier la présence des dépendances du programme.
+Si celles-ci ne sont pas toutes présentes, une erreurs apparaît et il faut alors télécharger la dépendance manquante. Une fois que les erreurs sont corrigées il ne reste plus qu’à compiler le programme en tapant make et à l’exécuter en tapant son nom.
+
+
 \clearpage
 \section{Environnement Python}
 \subsection{Présentation rapide de l'environnement}
@@ -234,20 +247,15 @@ Avec l’introduction du format binaire wheel, et la possibilité de publier des
 \clearpage
 \section{Références}
 
-\url{https://framasoft.org/article2460.html}
 
-\url{https://doc.ubuntu-fr.org/synaptic}
-
-\url{https://doc.ubuntu-fr.org/apt-get}
-
-\url{https://doc.ubuntu-fr.org/depots}
-
-\url{https://doc.ubuntu-fr.org/gestionnaire_de_paquets}
-
-\url{http://doc.fedora-fr.org/wiki/YUM_:_Configuration_du_gestionnaire_de_paquets}
-
-\url{http://python-prepa.github.io/intro.html}
-
-\url{https://www.afpy.org/doc/python/2.7/installing/index.html}
+\url{https://framasoft.org/article2460.html}\\
+\url{https://doc.ubuntu-fr.org/synaptic}\\
+\url{https://doc.ubuntu-fr.org/apt-get}\\
+\url{https://doc.ubuntu-fr.org/depots}\\
+\url{https://doc.ubuntu-fr.org/gestionnaire_de_paquets}\\
+\url{http://doc.fedora-fr.org/wiki/YUM_:_Configuration_du_gestionnaire_de_paquets}\\
+\url{https://openclassrooms.com/courses/reprenez-le-controle-a-l-aide-de-linux/compiler-un-programme-depuis-les-sources}\\
+\url{http://python-prepa.github.io/intro.html}\\
+\url{https://www.afpy.org/doc/python/2.7/installing/index.html}\\
 
 \end{document}
